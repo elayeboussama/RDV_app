@@ -1,4 +1,4 @@
-package com.example.rdv_app;
+package com.example.rdv_app.Models.rdvDb;
 
 
 import java.math.BigDecimal;

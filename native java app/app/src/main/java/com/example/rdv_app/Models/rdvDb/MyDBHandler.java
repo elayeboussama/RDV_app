@@ -1,4 +1,4 @@
-package com.example.rdv_app;
+package com.example.rdv_app.Models.rdvDb;
 
 
 import android.content.Context;
@@ -11,7 +11,7 @@ class MyDBHandler extends SQLiteOpenHelper {
     static final String DATABASE_NAME ="rdvDB.db" ;
 
 
-    static final String TABLE_PRODUCTS ="rdvs" ;
+    static final String TABLE_RDVS ="rdvs" ;
     static final String COLUMN_ID ="id_" ;
     static final String COLUMN_DATE ="date" ;
     static final String COLUMN_TIME ="time" ;
@@ -25,14 +25,14 @@ class MyDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_PRODUCTS + "(" +
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_RDVS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_DATE + " TEXT," + COLUMN_TIME + " TEXT," + COLUMN_TITLE + " TEXT," + COLUMN_CONTENT + " TEXT );";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RDVS);
         onCreate(db);
     }
 }

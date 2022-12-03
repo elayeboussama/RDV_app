@@ -1,4 +1,4 @@
-package com.example.rdv_app;
+package com.example.rdv_app.Models.rdvDb;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -30,12 +30,12 @@ public class DbManager {
         cont.put(MyDBHandler.COLUMN_TIME, time);
         cont.put(MyDBHandler.COLUMN_TITLE,title);
         cont.put(MyDBHandler.COLUMN_CONTENT,content);
-        database.insert(MyDBHandler.TABLE_PRODUCTS,null,cont);
+        database.insert(MyDBHandler.TABLE_RDVS,null,cont);
     }
 
     public Cursor fetch(){
         Cursor c;
-        c= database.rawQuery("SELECT * FROM "+MyDBHandler.TABLE_PRODUCTS,null);
+        c= database.rawQuery("SELECT * FROM "+MyDBHandler.TABLE_RDVS,null);
         if (c!=null){
             c.moveToFirst();
         }
@@ -50,12 +50,12 @@ public class DbManager {
         cont.put(MyDBHandler.COLUMN_TIME, String.valueOf(time));
         cont.put(MyDBHandler.COLUMN_TITLE,title);
         cont.put(MyDBHandler.COLUMN_CONTENT,content);
-        int res=database.update(MyDBHandler.TABLE_PRODUCTS,cont,MyDBHandler.COLUMN_ID + "=" + _id,null);
+        int res=database.update(MyDBHandler.TABLE_RDVS,cont,MyDBHandler.COLUMN_ID + "=" + _id,null);
         return res;
     }
 
     public void delete(String _id){
-        database.delete(MyDBHandler.TABLE_PRODUCTS,MyDBHandler.COLUMN_ID + "=" +_id,null);
+        database.delete(MyDBHandler.TABLE_RDVS,MyDBHandler.COLUMN_ID + "=" +_id,null);
     }
 }
 

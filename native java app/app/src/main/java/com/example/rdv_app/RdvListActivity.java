@@ -16,6 +16,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rdv_app.Models.rdvDb.RDV;
+import com.example.rdv_app.Models.rdvDb.DbManager;
+
 import java.math.BigDecimal;
 import java.sql.SQLDataException;
 import java.text.DecimalFormat;

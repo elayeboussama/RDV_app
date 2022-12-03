@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rdv_app.Models.rdvDb.DbManager;
+import com.example.rdv_app.Models.rdvDb.RDV;
+
 import java.sql.SQLDataException;
 import java.util.ArrayList;
 
