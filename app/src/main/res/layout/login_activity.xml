@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignWithParentIfMissing="false"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    app:flow_horizontalAlign="center"
+    app:flow_verticalAlign="center">
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:gravity="center_vertical"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#673AB7"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_rdv_username_login"
+        android:layout_width="350dp"
+        android:layout_height="57dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_style"
+        android:ems="10"
+        android:hint="add userName..."
+        android:inputType="textPersonName"
+        android:paddingLeft="20dp" />
+
+    <EditText
+        android:id="@+id/et_rdv_password_login"
+        android:layout_width="350dp"
+
+        android:layout_height="57dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_style"
+        android:ems="10"
+        android:hint="add password..."
+        android:inputType="textPersonName"
+        android:paddingLeft="20dp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:background="@drawable/edit_text_style"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#2196F3"
+        android:text="Sign In"
+        android:textColor="#FFFFFF"
+
+
+
+        />
+
+</LinearLayout>
