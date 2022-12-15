@@ -23,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
     public EditText name_et;
     public EditText password_et;
     private DbManagerUser dbUser;
-
     final int  REQUEST_CODE = 1;
 
 
@@ -33,10 +32,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_activity);
 
 
-
-
-
         dbUser = new DbManagerUser(this);
+
         try {
             dbUser.open();
         } catch (SQLDataException throwables) {
@@ -46,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         name_et = (EditText) findViewById(R.id.et_rdv_username_login);
         password_et = (EditText) findViewById(R.id.et_rdv_password_login);
+        LoginBTN = (Button) findViewById(R.id.btn_login);
         ArrayList<User> users = new ArrayList<User>();
         User user;
 
@@ -76,9 +74,14 @@ public class LoginActivity extends AppCompatActivity {
         LoginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name_et.getText().toString().equals(users.get(0).userName) && password_et.getText().toString().equals(users.get(0).password)){
-                    Intent i = new Intent(getApplicationContext(), RdvListActivity.class);
-                    i.putExtra("user", users.get(0).userName);
+                if(users.size()!=0){
+                    if(((name_et.getText().toString()).equals(users.get(0).userName)) && ((password_et.getText().toString()).equals(users.get(0).password))){
+                        Intent i = new Intent(getApplicationContext(), RdvListActivity.class);
+                        i.putExtra("user", users.get(0).userName);
+                        startActivity(i);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "there is no user with this information", Toast.LENGTH_LONG).show();
+                    }
                 }else{
                     Toast.makeText(getApplicationContext(), "there is no user with this information", Toast.LENGTH_LONG).show();
                 }

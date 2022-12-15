@@ -10,18 +10,20 @@ import java.util.Date;
 import java.util.Timer;
 
 public class DbManagerUser {
-    private MyDBHandlerUser dbHandler;
+    private MyDBHandlerUser dbHandlerUser;
     private Context context;
     private SQLiteDatabase database;
 
     public DbManagerUser(Context c){context=c;}
     public  void  open()throws SQLDataException {
-        dbHandler = new MyDBHandlerUser(context, null);
-        database = dbHandler.getWritableDatabase();
+        System.out.println("ds user open");
+        dbHandlerUser = new MyDBHandlerUser(context, null);
+        database = dbHandlerUser.getWritableDatabase();
+        dbHandlerUser.onCreate(database);
     }
 
     public void close() {
-        dbHandler.close();
+        dbHandlerUser.close();
     }
 
     public void insert( String name, String password){

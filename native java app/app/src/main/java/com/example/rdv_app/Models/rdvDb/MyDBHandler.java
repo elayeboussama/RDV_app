@@ -28,6 +28,7 @@ class MyDBHandler extends SQLiteOpenHelper {
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_RDVS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_DATE + " TEXT," + COLUMN_TIME + " TEXT," + COLUMN_TITLE + " TEXT," + COLUMN_CONTENT + " TEXT );";
         db.execSQL(CREATE_PRODUCTS_TABLE);
+
     }
 
     @Override

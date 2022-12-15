@@ -24,15 +24,19 @@ class MyDBHandlerUser extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("table created");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_NAME + " TEXT," + COLUMN_PASSWORD + " TEXT );";
 
-        String INSERT_USER = "INSERT INTO " + TABLE_USERS + "(" +
-                COLUMN_ID + " ," + COLUMN_NAME + " ," + COLUMN_PASSWORD + " ) " +
+        db.execSQL(CREATE_USERS_TABLE);
+
+        String INSERT_USER = "INSERT INTO " + TABLE_USERS + "("  + COLUMN_NAME + " ," + COLUMN_PASSWORD + " ) " +
                 " values( \"Malek\", \"Malek\") ;";
 
 
-        db.execSQL(CREATE_USERS_TABLE);
+
+
         db.execSQL(INSERT_USER);
     }
 

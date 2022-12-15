@@ -36,21 +36,21 @@
 
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_rdvList_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Add" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/btn_rdvList_edit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Edit" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_rdvList_del"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

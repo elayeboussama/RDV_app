@@ -16,8 +16,8 @@ import com.example.rdv_app.Models.rdvDb.RDV;
 import java.sql.SQLDataException;
 import java.util.ArrayList;
 
-public class AddRdvActivity extends AppCompatActivity {
-    public Button newRDVBTN;
+public class EditRdvActivity extends AppCompatActivity {
+    public Button editRDVBTN;
     public Button cancelRDVBTN;
 
     public Button List;
@@ -33,37 +33,21 @@ public class AddRdvActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_rdv_activity);
+        setContentView(R.layout.edit_rdv_activity);
 
-        newRDVBTN = findViewById(R.id.btn_rdv_add);
-        cancelRDVBTN = findViewById(R.id.btn_rdv_cancel);
+        editRDVBTN = findViewById(R.id.btn_rdv_edit);
+        cancelRDVBTN = findViewById(R.id.btn_rdv_cancel_edit);
 
-        date_et = findViewById(R.id.et_rdv_date);
-        time_et = findViewById(R.id.et_rdv_time);
-        title_et = findViewById(R.id.et_rdv_title);
-        content_et = findViewById(R.id.et_rdv_content);
+        date_et = findViewById(R.id.et_rdv_date_edit);
+        time_et = findViewById(R.id.et_rdv_time_edit);
+        title_et = findViewById(R.id.et_rdv_title_edit);
+        content_et = findViewById(R.id.et_rdv_content_edit);
 
         i = getIntent();
 
 
 
 
-
-
-
-
-            newRDVBTN.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String date = date_et.getText().toString();
-                    String time = time_et.getText().toString();
-                    String title = title_et.getText().toString();
-                    String content = content_et.getText().toString();
-                    db.insert(date, time, title, content);
-                    Toast.makeText(getApplicationContext(), "Data has been saved successfully!", Toast.LENGTH_LONG).show();
-                }
-
-            });
 
 
 
@@ -100,15 +84,33 @@ public class AddRdvActivity extends AppCompatActivity {
                 }while(c.moveToNext());
 
 
-                }
-
             }
-            c.close();
+
+        }
+        c.close();
 
 
 
 
+        RDV rdv = i.getParcelableExtra("notif") ;
+        System.out.println(rdv);
+        date_et.setText(i.getStringExtra("date"));
+        time_et.setText(i.getStringExtra("time"));
+        title_et.setText(i.getStringExtra("title"));
+        content_et.setText(i.getStringExtra("content"));
 
+        editRDVBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String date = date_et.getText().toString();
+                String time = time_et.getText().toString();
+                String title = title_et.getText().toString();
+                String content = content_et.getText().toString();
+                int test = db.update(i.getStringExtra("id"), date, time, title, content);
+                Toast.makeText(getApplicationContext(), "Data has been updated successfully! "+test, Toast.LENGTH_LONG).show();
+            }
+
+        });
 
 
 
@@ -116,7 +118,7 @@ public class AddRdvActivity extends AppCompatActivity {
         cancelRDVBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AddRdvActivity.this,RdvListActivity.class);
+                Intent intent = new Intent(getApplicationContext(),RdvListActivity.class);
                 startActivity(intent);
             }
 

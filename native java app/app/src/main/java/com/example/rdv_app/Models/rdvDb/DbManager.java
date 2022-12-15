@@ -43,7 +43,7 @@ public class DbManager {
         return c;
     }
 
-    public int update(String _id,Date date, Timer time, String title, String content){
+    public int update(String _id,String date, String time, String title, String content){
         ContentValues cont= new ContentValues();
 
         cont.put(MyDBHandler.COLUMN_DATE, String.valueOf(date));
@@ -55,7 +55,14 @@ public class DbManager {
     }
 
     public void delete(String _id){
-        database.delete(MyDBHandler.TABLE_RDVS,MyDBHandler.COLUMN_ID + "=" +_id,null);
+        try{
+//            String query = " DELETE FROM " + MyDBHandler.TABLE_RDVS + " WHERE id = " + _id;
+//            database.execSQL(" DELETE FROM " + MyDBHandler.TABLE_RDVS + " WHERE " + MyDBHandler.COLUMN_ID + " = " + _id);
+//          System.out.println("ddddddddd((trrrrr: "+_id);
+          database.delete(MyDBHandler.TABLE_RDVS,String.format( "%s = %s" ,MyDBHandler.COLUMN_ID,_id),null);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
 
